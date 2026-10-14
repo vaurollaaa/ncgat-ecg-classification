@@ -1,0 +1,444 @@
+{
+  "seed": 42,
+  "reproducibility": {
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "numpy": "2.0.2",
+    "device": "cuda"
+  },
+  "config": {
+    "batch_size": 64,
+    "lr": 0.001,
+    "epochs": 25,
+    "patience": 7,
+    "dropout": 0.25,
+    "weight_decay": 5e-05,
+    "warmup_epochs": 5
+  },
+  "eksperimen_a": {
+    "CNN": {
+      "accuracy": 0.8562026982560053,
+      "precision": 0.6987814268193845,
+      "recall": 0.798473218266289,
+      "macro_f1": 0.7397899384060449,
+      "micro_f1": 0.9094768764215314,
+      "auroc_macro": 0.9682132163879876,
+      "auprc_macro": 0.7793937974592108
+    },
+    "Transformer": {
+      "accuracy": 0.7245804540967423,
+      "precision": 0.5572050299800665,
+      "recall": 0.7019050993010758,
+      "macro_f1": 0.6090871631011509,
+      "micro_f1": 0.8397232631882386,
+      "auroc_macro": 0.9061620411189008,
+      "auprc_macro": 0.6261704045829135
+    },
+    "GAT": {
+      "accuracy": 0.8805528134254689,
+      "precision": 0.7529464914257259,
+      "recall": 0.8132354494914869,
+      "macro_f1": 0.7746067410674776,
+      "micro_f1": 0.9242610837438424,
+      "auroc_macro": 0.9779041221020939,
+      "auprc_macro": 0.8162208596224931
+    },
+    "NC-GAT": {
+      "accuracy": 0.8900954261270154,
+      "precision": 0.7656788356428764,
+      "recall": 0.8221631844648077,
+      "macro_f1": 0.7894116954584014,
+      "micro_f1": 0.9292649098474342,
+      "auroc_macro": 0.9801866496993071,
+      "auprc_macro": 0.829128274673728
+    }
+  },
+  "bootstrap_ci_macro_f1": {
+    "CNN": {
+      "macro_f1_mean": 0.7392389513155072,
+      "ci_lower": 0.7164506674610508,
+      "ci_upper": 0.7612654742152679
+    },
+    "Transformer": {
+      "macro_f1_mean": 0.6082748795243407,
+      "ci_lower": 0.5847651781238676,
+      "ci_upper": 0.6311706018350256
+    },
+    "GAT": {
+      "macro_f1_mean": 0.7741616352069283,
+      "ci_lower": 0.7501472102929003,
+      "ci_upper": 0.7960055549069801
+    },
+    "NC-GAT": {
+      "macro_f1_mean": 0.7888568270134599,
+      "ci_lower": 0.7657773812303036,
+      "ci_upper": 0.8100232724046742
+    }
+  },
+  "mcnemar_gat_vs_ncgat": {
+    "chi2": 4.148148148148148,
+    "p_value": 0.04168008356620212
+  },
+  "eksperimen_b_robustness": [
+    {
+      "model": "CNN",
+      "condition": "clean",
+      "accuracy": 0.8562026982560053,
+      "precision": 0.6987814268193845,
+      "recall": 0.798473218266289,
+      "macro_f1": 0.7397899384060449,
+      "micro_f1": 0.9094768764215314,
+      "auroc_macro": 0.9682132163879876,
+      "auprc_macro": 0.7793937974592108
+    },
+    {
+      "model": "CNN",
+      "condition": "baseline_wander_snr5",
+      "accuracy": 0.6479104968739717,
+      "precision": 0.4386835317064403,
+      "recall": 0.43387842243893693,
+      "macro_f1": 0.38505067940692733,
+      "micro_f1": 0.7773266708307308,
+      "auroc_macro": 0.8264618181258051,
+      "auprc_macro": 0.4589752987627224
+    },
+    {
+      "model": "CNN",
+      "condition": "muscle_snr0",
+      "accuracy": 0.7821651859164199,
+      "precision": 0.7120697929027361,
+      "recall": 0.7413931598859774,
+      "macro_f1": 0.6872432518304438,
+      "micro_f1": 0.865190540744088,
+      "auroc_macro": 0.9582451023233297,
+      "auprc_macro": 0.7525278682773315
+    },
+    {
+      "model": "CNN",
+      "condition": "missing_v1",
+      "accuracy": 0.8397499177360974,
+      "precision": 0.7087076982480189,
+      "recall": 0.7416169477690029,
+      "macro_f1": 0.7194274520223455,
+      "micro_f1": 0.8956333230102199,
+      "auroc_macro": 0.9563441051394519,
+      "auprc_macro": 0.7353232095586076
+    },
+    {
+      "model": "CNN",
+      "condition": "missing_limb",
+      "accuracy": 0.21158275748601513,
+      "precision": 0.559598918714627,
+      "recall": 0.4985220227257403,
+      "macro_f1": 0.42264059619049177,
+      "micro_f1": 0.3691533451746596,
+      "auroc_macro": 0.8614349402004876,
+      "auprc_macro": 0.5554457417373668
+    },
+    {
+      "model": "CNN",
+      "condition": "missing_precordial",
+      "accuracy": 0.25995393221454427,
+      "precision": 0.5185813196329253,
+      "recall": 0.4502244923427101,
+      "macro_f1": 0.3245623328312298,
+      "micro_f1": 0.6345868381989115,
+      "auroc_macro": 0.8822381023829103,
+      "auprc_macro": 0.5113446763587582
+    },
+    {
+      "model": "Transformer",
+      "condition": "clean",
+      "accuracy": 0.7245804540967423,
+      "precision": 0.5572050299800665,
+      "recall": 0.7019050993010758,
+      "macro_f1": 0.6090871631011509,
+      "micro_f1": 0.8397232631882386,
+      "auroc_macro": 0.9061620411189008,
+      "auprc_macro": 0.6261704045829135
+    },
+    {
+      "model": "Transformer",
+      "condition": "baseline_wander_snr5",
+      "accuracy": 0.6887133925633432,
+      "precision": 0.497564299314279,
+      "recall": 0.48833357285325113,
+      "macro_f1": 0.45805858384601833,
+      "micro_f1": 0.7965166908563135,
+      "auroc_macro": 0.8200535307326989,
+      "auprc_macro": 0.4535995039593194
+    },
+    {
+      "model": "Transformer",
+      "condition": "muscle_snr0",
+      "accuracy": 0.7311615663047055,
+      "precision": 0.5703315699369462,
+      "recall": 0.5696362846276454,
+      "macro_f1": 0.5160789289629041,
+      "micro_f1": 0.8179916317991632,
+      "auroc_macro": 0.8584577917766415,
+      "auprc_macro": 0.54268315104782
+    },
+    {
+      "model": "Transformer",
+      "condition": "missing_v1",
+      "accuracy": 0.7390589009542613,
+      "precision": 0.507354340926741,
+      "recall": 0.5721557898372899,
+      "macro_f1": 0.528005389656333,
+      "micro_f1": 0.8316334072431634,
+      "auroc_macro": 0.8680504187008888,
+      "auprc_macro": 0.5217546791409944
+    },
+    {
+      "model": "Transformer",
+      "condition": "missing_limb",
+      "accuracy": 0.20204014478446858,
+      "precision": 0.426506509522107,
+      "recall": 0.3047288275884553,
+      "macro_f1": 0.23864450494769943,
+      "micro_f1": 0.3776861937003238,
+      "auroc_macro": 0.7595021826915015,
+      "auprc_macro": 0.38965795306425427
+    },
+    {
+      "model": "Transformer",
+      "condition": "missing_precordial",
+      "accuracy": 0.2464626521882198,
+      "precision": 0.21253033921594014,
+      "recall": 0.32487610865089017,
+      "macro_f1": 0.20251421233339803,
+      "micro_f1": 0.5124079629124625,
+      "auroc_macro": 0.6844238814468708,
+      "auprc_macro": 0.24568469601965237
+    },
+    {
+      "model": "GAT",
+      "condition": "clean",
+      "accuracy": 0.8805528134254689,
+      "precision": 0.7529464914257259,
+      "recall": 0.8132354494914869,
+      "macro_f1": 0.7746067410674776,
+      "micro_f1": 0.9242610837438424,
+      "auroc_macro": 0.9779041221020939,
+      "auprc_macro": 0.8162208596224931
+    },
+    {
+      "model": "GAT",
+      "condition": "baseline_wander_snr5",
+      "accuracy": 0.7897334649555775,
+      "precision": 0.7364209864209865,
+      "recall": 0.5071266756797341,
+      "macro_f1": 0.5039047436811034,
+      "micro_f1": 0.8377206565500155,
+      "auroc_macro": 0.946002038653826,
+      "auprc_macro": 0.7261393250667192
+    },
+    {
+      "model": "GAT",
+      "condition": "muscle_snr0",
+      "accuracy": 0.527147087857848,
+      "precision": 0.32469316220195626,
+      "recall": 0.43368221267839574,
+      "macro_f1": 0.2846788042956307,
+      "micro_f1": 0.6630776132794975,
+      "auroc_macro": 0.8138028557138509,
+      "auprc_macro": 0.46514870410258924
+    },
+    {
+      "model": "GAT",
+      "condition": "missing_v1",
+      "accuracy": 0.845343863112866,
+      "precision": 0.7022970101951476,
+      "recall": 0.8285047465322674,
+      "macro_f1": 0.7443187411208035,
+      "micro_f1": 0.9030870833973276,
+      "auroc_macro": 0.9718769807622306,
+      "auprc_macro": 0.8013439965346701
+    },
+    {
+      "model": "GAT",
+      "condition": "missing_limb",
+      "accuracy": 0.20467258966765384,
+      "precision": 0.5377385425742306,
+      "recall": 0.5206668714703762,
+      "macro_f1": 0.42282777620074846,
+      "micro_f1": 0.3318673883626522,
+      "auroc_macro": 0.924937856916443,
+      "auprc_macro": 0.6485308001232474
+    },
+    {
+      "model": "GAT",
+      "condition": "missing_precordial",
+      "accuracy": 0.1533399144455413,
+      "precision": 0.5609087346202243,
+      "recall": 0.3981601638257802,
+      "macro_f1": 0.32360990341600243,
+      "micro_f1": 0.23593646591661152,
+      "auroc_macro": 0.8612683262711825,
+      "auprc_macro": 0.537929030686214
+    },
+    {
+      "model": "NC-GAT",
+      "condition": "clean",
+      "accuracy": 0.8900954261270154,
+      "precision": 0.7656788356428764,
+      "recall": 0.8221631844648077,
+      "macro_f1": 0.7894116954584014,
+      "micro_f1": 0.9292649098474342,
+      "auroc_macro": 0.9801866496993071,
+      "auprc_macro": 0.829128274673728
+    },
+    {
+      "model": "NC-GAT",
+      "condition": "baseline_wander_snr5",
+      "accuracy": 0.8884501480750246,
+      "precision": 0.7810916026621926,
+      "recall": 0.8136953816737401,
+      "macro_f1": 0.7850666396740381,
+      "micro_f1": 0.9305470190534727,
+      "auroc_macro": 0.9816844787330902,
+      "auprc_macro": 0.8382869667534235
+    },
+    {
+      "model": "NC-GAT",
+      "condition": "muscle_snr0",
+      "accuracy": 0.8772622573214873,
+      "precision": 0.7672450510553657,
+      "recall": 0.7948628436049447,
+      "macro_f1": 0.7656011015783398,
+      "micro_f1": 0.9227237949502678,
+      "auroc_macro": 0.9816312240621984,
+      "auprc_macro": 0.8312027418579416
+    },
+    {
+      "model": "NC-GAT",
+      "condition": "missing_v1",
+      "accuracy": 0.8854886475814413,
+      "precision": 0.7560110624637182,
+      "recall": 0.8142656963689819,
+      "macro_f1": 0.7809776861400012,
+      "micro_f1": 0.9262055153289169,
+      "auroc_macro": 0.9794285899457617,
+      "auprc_macro": 0.8263799744517838
+    },
+    {
+      "model": "NC-GAT",
+      "condition": "missing_limb",
+      "accuracy": 0.8716683119447186,
+      "precision": 0.73188378623307,
+      "recall": 0.8168629779999027,
+      "macro_f1": 0.7657528085984585,
+      "micro_f1": 0.9166921898928024,
+      "auroc_macro": 0.9787460469392579,
+      "auprc_macro": 0.8184458882485138
+    },
+    {
+      "model": "NC-GAT",
+      "condition": "missing_precordial",
+      "accuracy": 0.8627838104639685,
+      "precision": 0.7339968624872971,
+      "recall": 0.7465566738274257,
+      "macro_f1": 0.7332340960519766,
+      "micro_f1": 0.9129964456807295,
+      "auroc_macro": 0.9644350607856995,
+      "auprc_macro": 0.7690976810543336
+    }
+  ],
+  "eksperimen_c_noise_consistency": [
+    {
+      "condition": "clean",
+      "f1_without_nc": 0.7746067410674776,
+      "f1_with_nc": 0.7894116954584014,
+      "delta": 0.014804954390923775
+    },
+    {
+      "condition": "baseline_wander_snr5",
+      "f1_without_nc": 0.5093834105381102,
+      "f1_with_nc": 0.783366857430793,
+      "delta": 0.27398344689268284
+    },
+    {
+      "condition": "muscle_snr0",
+      "f1_without_nc": 0.2934643484590846,
+      "f1_with_nc": 0.7658290057629733,
+      "delta": 0.4723646573038887
+    },
+    {
+      "condition": "missing_v1",
+      "f1_without_nc": 0.7443187411208035,
+      "f1_with_nc": 0.7809776861400012,
+      "delta": 0.03665894501919764
+    },
+    {
+      "condition": "missing_limb",
+      "f1_without_nc": 0.42282777620074846,
+      "f1_with_nc": 0.7657528085984585,
+      "delta": 0.34292503239771005
+    },
+    {
+      "condition": "missing_precordial",
+      "f1_without_nc": 0.32360990341600243,
+      "f1_with_nc": 0.7332340960519766,
+      "delta": 0.4096241926359742
+    }
+  ],
+  "eksperimen_d_cross_dataset": [
+    {
+      "model": "CNN",
+      "f1_source": 0.7397899384060449,
+      "f1_target": 0.5917519416045971,
+      "delta_f1": 0.1480379968014478,
+      "auroc_source": 0.9682132163879876,
+      "auroc_target": 0.9071180394788024,
+      "auprc_source": 0.7793937974592108,
+      "auprc_target": 0.7636064081871957
+    },
+    {
+      "model": "Transformer",
+      "f1_source": 0.6090871631011509,
+      "f1_target": 0.5063025938320465,
+      "delta_f1": 0.1027845692691044,
+      "auroc_source": 0.9061620411189008,
+      "auroc_target": 0.8421254038380211,
+      "auprc_source": 0.6261704045829135,
+      "auprc_target": 0.6057924566314273
+    },
+    {
+      "model": "GAT",
+      "f1_source": 0.7746067410674776,
+      "f1_target": 0.5992125367336535,
+      "delta_f1": 0.17539420433382413,
+      "auroc_source": 0.9779041221020939,
+      "auroc_target": 0.9291586173063946,
+      "auprc_source": 0.8162208596224931,
+      "auprc_target": 0.817846138699307
+    },
+    {
+      "model": "NC-GAT",
+      "f1_source": 0.7894116954584014,
+      "f1_target": 0.6307031413243642,
+      "delta_f1": 0.15870855413403717,
+      "auroc_source": 0.9801866496993071,
+      "auroc_target": 0.9365924792526078,
+      "auprc_source": 0.829128274673728,
+      "auprc_target": 0.8289218438902504
+    }
+  ],
+  "eksperimen_e_xai": [
+    {
+      "model": "GAT",
+      "noise_spearman": 0.7447552447552448,
+      "noise_top3": 0.7083333333333333,
+      "domain_spearman": 0.4582604895104896,
+      "domain_top3": 0.5625
+    },
+    {
+      "model": "NC-GAT",
+      "noise_spearman": 0.8135926573426575,
+      "noise_top3": 0.78125,
+      "domain_spearman": 0.08959790209790211,
+      "domain_top3": 0.3020833333333333
+    }
+  ]
+}
