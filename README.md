@@ -41,9 +41,9 @@ Robustness (macro-F1, GAT without augmentation → NC-GAT):
 Cross-dataset (macro-F1, PTB-XL → Chapman): CNN 0.592 · Transformer 0.506 · GAT 0.599 · **NC-GAT 0.631**.
 
 ## Key figures
-![Robustness](results/figures/eksperimen_c_nc.png)
-![Cross-dataset](results/figures/eksperimen_d_cross.png)
-![Attention](results/figures/attention_heatmap.png)
+![Robustness](results(1)/nc_gat_final/results/eksperimen_c_nc.png)
+![Cross-dataset](results(1)/nc_gat_final/results/eksperimen_d_cross.png)
+![Attention](results(1)/nc_gat_final/results/attention_heatmap.png)
 
 ## Method
 1. Label harmonization SCP-ECG → SNOMED-CT, validated against the PhysioNet 2021 reference (5 of 6 classes match exactly; NSR differs by ~3%).
